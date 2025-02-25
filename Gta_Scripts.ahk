@@ -1,13 +1,13 @@
 #Include Script_Base.ahk
 WindowName := "Grand Theft Auto V"
 
+; Modify hotkeys ONLY in "".
 Hotkey("~$xbutton2", HeavyReloadCancel) ; Side Front Mouse Button
 Hotkey("~$xbutton1", SniperReloadCancel) ; Side Back Mouse Button
 Hotkey("~$mbutton", AmmoBuy) ; Middle Mouse buys ammo
 Hotkey("~$+mbutton", PersonalVehicleCall) ; Shift + Mouse Wheel
 Hotkey("~$^XButton1", BSTBuy) ; Ctrl + CapsLock
 Hotkey("~$+capslock", ArmorBuy) ; Shitf + CapsLock
-Hotkey("~$^tab", VehicleHelmetEquip) ; Ctrl + Tab
 Hotkey("~$^del", AFK) ; Ctrl + Del
 ; Hotkey("NULL", PassiveHealthRegen)
 
@@ -202,82 +202,6 @@ ArmorBuy(Hotkey) {
     Send("{" . KeyBindEnter . " down}")
     ExactSleep(50)
     Send("{" . KeyBindEnter . " up}")
-    ExactSleep(50)
-}
-
-VehicleHelmetEquip(Hotkey) {
-    if (!Active()) {
-        return
-    }
-    Send("{" . KeyBindInteractionMenu . " down}")
-    ExactSleep(50)
-    Send("{" . KeyBindInteractionMenu . " up}")
-    ExactSleep(100)
-    loop (5) {
-        Send("{" . KeyBindDownArrow . " down}")
-        ExactSleep(50)
-        Send("{" . KeyBindDownArrow . " up}")
-        ExactSleep(50)
-    }
-    Send("{" . KeyBindEnter . " down}")
-    ExactSleep(50)
-    Send("{" . KeyBindEnter . " up}")
-    ExactSleep(50)
-    loop (3) {
-        Send("{" . KeyBindDownArrow . " down}")
-        ExactSleep(50)
-        Send("{" . KeyBindDownArrow . " up}")
-        ExactSleep(50)
-    }
-    Send("{" . KeyBindEnter . " down}")
-    ExactSleep(50)
-    Send("{" . KeyBindEnter . " up}")
-    ExactSleep(50)
-    Send("{" . KeyBindBackspace . " down}")
-    ExactSleep(50)
-    Send("{" . KeyBindBackspace . " up}")
-    ExactSleep(50)
-    Send("{" . KeyBindF . " down}")
-    ExactSleep(50)
-    Send("{" . KeyBindF . " up}")
-    ExactSleep(50)
-    loop (5) {
-        Send("{" . KeyBindUpArrow . " down}")
-        ExactSleep(50)
-        Send("{" . KeyBindUpArrow . " up}")
-        ExactSleep(50)
-    }
-    Send("{" . KeyBindEnter . " down}")
-    ExactSleep(50)
-    Send("{" . KeyBindEnter . " up}")
-    ExactSleep(50)
-    Send("{" . KeyBindDownArrow . " down}")
-    ExactSleep(50)
-    Send("{" . KeyBindDownArrow . " up}")
-    ExactSleep(50)
-    Send("{" . KeyBindEnter . " down}")
-    ExactSleep(50)
-    Send("{" . KeyBindEnter . " up}")
-    ExactSleep(50)
-    Send("{" . KeyBindDownArrow . " down}")
-    ExactSleep(50)
-    Send("{" . KeyBindDownArrow . " up}")
-    ExactSleep(50)
-    Send("{" . KeyBindEnter . " down}")
-    ExactSleep(50)
-    Send("{" . KeyBindEnter . " up}")
-    ExactSleep(50)
-    Send("{" . KeybindLeftArrow . " down}")
-    ExactSleep(50)
-    Send("{" . KeybindLeftArrow . " up}")
-    ExactSleep(50)
-    Send("{" . KeybindRightArrow . " down}")
-    ExactSleep(50)
-    Send("{" . KeybindRightArrow . " up}")
-    ExactSleep(50)
-    Send("{" . KeyBindInteractionMenu . " down}")
-    ExactSleep(50)
-    Send("{" . KeyBindInteractionMenu . " up}")
     ExactSleep(50)
 }
 
