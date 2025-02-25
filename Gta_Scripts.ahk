@@ -1,32 +1,44 @@
 #Include Script_Base.ahk
 WindowName := "Grand Theft Auto V"
 
-Hotkey("~$^lbutton", HeavyReloadCancel)
-Hotkey("~$^rbutton", SniperReloadCancel)
-Hotkey("~$MButton", AmmoBuy)
-Hotkey("~$+MButton", PersonalVehicleCall)
-Hotkey("~$^CapsLock", BSTBuy)
-Hotkey("~$+CapsLock", ArmorBuy)
+Hotkey("~$xbutton2", HeavyReloadCancel) ; Side Front Mouse Button
+Hotkey("~$xbutton1", SniperReloadCancel) ; Side Back Mouse Button
+Hotkey("~$mbutton", AmmoBuy) ; Middle Mouse buys ammo
+Hotkey("~$+mbutton", PersonalVehicleCall) ; Shift + Mouse Wheel
+Hotkey("~$^capslock", BSTBuy) ; Ctrl + CapsLock
+Hotkey("~$+capslock", ArmorBuy) ; Shitf + CapsLock
 ; Hotkey("NULL", PassiveHealthRegen)
 ; Hotkey("NULL", VehicleHelmetEquip)
+
+; Interaction Menu Configuration Section
+KeyBindInteractionMenu := "m"
+KeyBindEnter := "enter"
+KeybindLeftArrow := "left"
+KeyBindDownArrow := "down"
+
+; Weapon Menu Configuration Section
+KeyBindWeaponWheel := "tab"
+KeyBindAimButton := "rbutton"
+KeyBindSpecialWeapon := "r"
+KeyBindHeavyWeapon := "3"
+KeyBindSniper := "1"
+KeyBindPistol := "2"
 
 HeavyReloadCancel(Hotkey) {
     if (!Active()) {
         return
     }
-    Send("{r down}") ; Presses the special weapon key
+    Send("{" . KeyBindSpecialWeapon . " down}")
     ExactSleep(50)
-    Send("{r up}") ; Releases the special weapon key
+    Send("{" . KeyBindSpecialWeapon . " up}")
     ExactSleep(50)
-    Send("{3 down}") ; Presses the heavy weapon key
+    Send("{" . KeyBindHeavyWeapon . " down}")
     ExactSleep(50)
-    Send("{3 up}") ; Releases the heavy weapon key
+    Send("{" . KeyBindHeavyWeapon . " up}")
     ExactSleep(50)
-    Send("{tab down}") ; Presses the weapon wheel key
+    Send("{" . KeyBindWeaponWheel . " down}")
     ExactSleep(50)
-    Send("{tab up}") ; Releases the weapon wheel key
-    ExactSleep(50)
-    Send("{lbutton down}")
+    Send("{" . KeyBindWeaponWheel . " up}")
 
 }
 
@@ -34,119 +46,119 @@ SniperReloadCancel(Hotkey) {
     if (!Active()) {
         return
     }
-    Send("{r down}") ; Presses the special weapon key
+    Send("{" . KeyBindSpecialWeapon . " down}")
     ExactSleep(50)
-    Send("{r up}") ; Releases the special weapon key
+    Send("{" . KeyBindSpecialWeapon . " up}")
     ExactSleep(50)
-    Send("{1 down}") ; Presses the sniper rifle key
+    Send("{" . KeyBindSniper . " down}")
     ExactSleep(50)
-    Send("{1 up}") ; Releases the sniper rifle key
+    Send("{" . KeyBindSniper . " up}")
     ExactSleep(50)
-    Send("{tab down}") ; Presses the weapon wheel key
+    Send("{" . KeyBindWeaponWheel . " down}")
     ExactSleep(50)
-    Send("{tab up}") ; Releases the weapon wheel key
+    Send("{" . KeyBindWeaponWheel . " up}")
     ExactSleep(50)
-    Send("{rbutton down}") ; Presses the aim key
+    Send("{" . KeyBindAimButton . " down}")
     ExactSleep(100)
-    Send("{rbutton up}") ; Releases the aim key
+    Send("{" . KeyBindAimButton . " up}")
 }
 
 AmmoBuy(Hotkey) {
     if (!Active()) {
         return
     }
-    Send("{2 down}")
+    Send("{" . KeyBindPistol . " down}")
     ExactSleep(50)
-    Send("{2 up}")
+    Send("{" . KeyBindPistol . " up}")
     ExactSleep(50)
-    Send("{m down}")
+    Send("{" . KeyBindInteractionMenu . " down}")
     ExactSleep(50)
-    Send("{m up}")
+    Send("{" . KeyBindInteractionMenu . " up}")
     ExactSleep(100)
     loop (4) {
-        Send("{down down}")
+        Send("{" . KeyBindDownArrow . " down}")
         ExactSleep(50)
-        Send("{down up}")
+        Send("{" . KeyBindDownArrow . " up}")
         ExactSleep(50)
     }
     loop (2) {
-        Send("{enter down}")
+        Send("{" . KeyBindEnter . " down}")
         ExactSleep(50)
-        Send("{enter up}")
+        Send("{" . KeyBindEnter . " up}")
         ExactSleep(50)
     }
     ExactSleep(200)
-    Send("{left down}")
+    Send("{" . KeybindLeftArrow . " down}")
     ExactSleep(50)
-    Send("{left up}")
+    Send("{" . KeybindLeftArrow . " up}")
     ExactSleep(50)
-    Send("{down down}")
+    Send("{" . KeyBindDownArrow . " down}")
     ExactSleep(50)
-    Send("{down up}")
+    Send("{" . KeyBindDownArrow . " up}")
     ExactSleep(50)
-    Send("{enter down}")
+    Send("{" . KeyBindEnter . " down}")
     ExactSleep(50)
-    Send("{enter up}")
+    Send("{" . KeyBindEnter . " up}")
     ExactSleep(50)
-    Send("{m down}")
+    Send("{" . KeyBindInteractionMenu . " down}")
     ExactSleep(50)
-    Send("{m up}")
+    Send("{" . KeyBindInteractionMenu . " up}")
 }
 
 PersonalVehicleCall(Hotkey) {
     if (!Active()) {
         return
     }
-    Send("{m down}")
+    Send("{" . KeyBindInteractionMenu . " down}")
     ExactSleep(50)
-    Send("{m up}")
+    Send("{" . KeyBindInteractionMenu . " up}")
     ExactSleep(100)
     loop (2) {
-        Send("{down down}")
+        Send("{" . KeyBindDownArrow . " down}")
         ExactSleep(50)
-        Send("{down up}")
+        Send("{" . KeyBindDownArrow . " up}")
         ExactSleep(50)
     }
     loop (2) {
-        Send("{enter down}")
+        Send("{" . KeyBindEnter . " down}")
         ExactSleep(50)
-        Send("{enter up}")
+        Send("{" . KeyBindEnter . " up}")
         ExactSleep(50)
     }
-    Send("{m down}")
+    Send("{" . KeyBindInteractionMenu . " down}")
     ExactSleep(50)
-    Send("{m up}")
+    Send("{" . KeyBindInteractionMenu . " up}")
 }
 
 BSTBuy(Hotkey) {
     if (!Active()) {
         return
     }
-    Send("{m down}")
+    Send("{" . KeyBindInteractionMenu . " down}")
     ExactSleep(50)
-    Send("{m up}")
+    Send("{" . KeyBindInteractionMenu . " up}")
     ExactSleep(100)
-    Send("{enter down}")
+    Send("{" . KeyBindEnter . " down}")
     ExactSleep(50)
-    Send("{enter up}")
+    Send("{" . KeyBindEnter . " up}")
     ExactSleep(50)
     loop (4) {
-        Send("{down down}")
+        Send("{" . KeyBindDownArrow . " down}")
         ExactSleep(50)
-        Send("{down up}")
+        Send("{" . KeyBindDownArrow . " up}")
         ExactSleep(50)
     }
-    Send("{enter down}")
+    Send("{" . KeyBindEnter . " down}")
     ExactSleep(50)
-    Send("{enter up}")
+    Send("{" . KeyBindEnter . " up}")
     ExactSleep(50)
-    Send("{down down}")
+    Send("{" . KeyBindDownArrow . " down}")
     ExactSleep(50)
-    Send("{down up}")
+    Send("{" . KeyBindDownArrow . " up}")
     ExactSleep(50)
-    Send("{enter down}")
+    Send("{" . KeyBindEnter . " down}")
     ExactSleep(50)
-    Send("{enter up}")
+    Send("{" . KeyBindEnter . " up}")
     ExactSleep(50)
 }
 
@@ -154,32 +166,32 @@ ArmorBuy(Hotkey) {
     if (!Active()) {
         return
     }
-    Send("{m down}")
+    Send("{" . KeyBindInteractionMenu . " down}")
     ExactSleep(50)
-    Send("{m up}")
+    Send("{" . KeyBindInteractionMenu . " up}")
     ExactSleep(100)
-    Send("{enter down}")
+    Send("{" . KeyBindEnter . " down}")
     ExactSleep(50)
-    Send("{enter up}")
+    Send("{" . KeyBindEnter . " up}")
     ExactSleep(50)
     loop (4) {
-        Send("{down down}")
+        Send("{" . KeyBindDownArrow . " down}")
         ExactSleep(50)
-        Send("{down up}")
+        Send("{" . KeyBindDownArrow . " up}")
         ExactSleep(50)
     }
-    Send("{enter down}")
+    Send("{" . KeyBindEnter . " down}")
     ExactSleep(50)
-    Send("{enter up}")
+    Send("{" . KeyBindEnter . " up}")
     ExactSleep(50)
     loop (3) {
-        Send("{down down}")
+        Send("{" . KeyBindDownArrow . " down}")
         ExactSleep(50)
-        Send("{down up}")
+        Send("{" . KeyBindDownArrow . " up}")
         ExactSleep(50)
     }
-    Send("{enter down}")
+    Send("{" . KeyBindEnter . " down}")
     ExactSleep(50)
-    Send("{enter up}")
+    Send("{" . KeyBindEnter . " up}")
     ExactSleep(50)
 }
