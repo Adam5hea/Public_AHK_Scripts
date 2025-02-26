@@ -1,4 +1,5 @@
 #Include Script_Base.ahk
+#Include Configuration.ahk
 WindowName := "Grand Theft Auto V"
 
 ; Modify hotkeys ONLY in "".
@@ -10,28 +11,6 @@ Hotkey("~$^XButton1", BSTBuy) ; Ctrl + CapsLock
 Hotkey("~$+capslock", ArmorBuy) ; Shitf + CapsLock
 Hotkey("~$^del", AFK) ; Ctrl + Del
 ; Hotkey("NULL", PassiveHealthRegen)
-
-; Interaction Configuration Section
-KeyBindInteractionMenu := "m"
-KeyBindEnter := "enter"
-KeybindLeftArrow := "left"
-KeyBindDownArrow := "down"
-KeyBindBackspace := "Backspace"
-KeyBindUpArrow := "up"
-KeyBindF := "f"
-KeybindRightArrow := "right"
-
-; Weapon Menu Configuration Section
-KeyBindWeaponWheel := "tab"
-KeyBindAimButton := "rbutton"
-KeyBindSpecialWeapon := "r"
-KeyBindHeavyWeapon := "3"
-KeyBindSniper := "1"
-KeyBindPistol := "2"
-
-; Movement Configuration
-KeyBindMoveLeft := "a"
-KeyBindMoveRight := "d"
 
 HeavyReloadCancel(Hotkey) {
     if (!Active()) {
