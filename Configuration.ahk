@@ -4,13 +4,14 @@
 KeyBindInteractionMenu := "m"
 KeyBindEnter := "enter"
 KeybindLeftArrow := "left"
-KeyBindDownArrow := "down"
-KeyBindBackspace := "Backspace"
-KeyBindUpArrow := "up"
-KeyBindF := "f"
 KeybindRightArrow := "right"
+KeyBindDownArrow := "down"
+KeyBindUpArrow := "up"
+KeyBindBackspace := "Backspace"
+KeyBindF := "f"
 KeybindE := "e"
 KeyBindEscape := "escape"
+KeybindSpace := "space"
 
 ; Weapon Menu Configuration Section
 KeyBindWeaponWheel := "tab"

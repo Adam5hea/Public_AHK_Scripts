@@ -3,14 +3,15 @@
 WindowName := "Grand Theft Auto V"
 
 ; Modify hotkeys ONLY in "".
-Hotkey("~$xbutton2", HeavyReloadCancel) ; Side Front Mouse Button
-Hotkey("~$xbutton1", SniperReloadCancel) ; Side Back Mouse Button
+Hotkey("~$xbutton2", HeavyReloadCancel) ; Side Forward Mouse Button
+Hotkey("~$xbutton1", SniperReloadCancel) ; Side Backward Mouse Button
 Hotkey("~$mbutton", AmmoBuy) ; Middle Mouse buys ammo
-Hotkey("~$+mbutton", PersonalVehicleCall) ; Shift + Mouse Wheel
-Hotkey("~$^XButton1", BSTBuy) ; Ctrl + CapsLock
-Hotkey("~$+capslock", ArmorBuy) ; Shitf + CapsLock
+Hotkey("~$^mbutton", PersonalVehicleCall) ; Ctrl + Mouse Wheel
+Hotkey("~$^e", BSTBuy) ; Ctrl + E
+Hotkey("~$^q", ArmorBuy) ; Ctrl + Q
 Hotkey("~$^del", AFK) ; Ctrl + Del
-; Hotkey("NULL", PassiveHealthRegen)
+Hotkey("-", ThermalJet) ; -
+Hotkey("=", ThermalToggle) ; =
 
 HeavyReloadCancel(Hotkey) {
     if (!Active()) {
@@ -62,7 +63,7 @@ AmmoBuy(Hotkey) {
     Send("{" . KeyBindInteractionMenu . " down}")
     ExactSleep(50)
     Send("{" . KeyBindInteractionMenu . " up}")
-    ExactSleep(100)
+    ExactSleep(50)
     loop (4) {
         Send("{" . KeyBindDownArrow . " down}")
         ExactSleep(50)
@@ -207,4 +208,83 @@ AFK(Hotkey) {
     } else {
         ; Toggle is false, so the loop will exit naturally
     }
+}
+
+ThermalJet(hotkey) {
+    if (!Active()) {
+        return
+    }
+    Send("{" . KeyBindInteractionMenu . " down}")
+    ExactSleep(50)
+    Send("{" . KeyBindInteractionMenu . " up}")
+    ExactSleep(50)
+    Send("{" . KeyBindEnter . " down}")
+    ExactSleep(50)
+    Send("{" . KeyBindEnter . " up}")
+    ExactSleep(50)
+    Send("{" . KeyBindDownArrow . " down}")
+    ExactSleep(50)
+    Send("{" . KeyBindDownArrow . " up}")
+    ExactSleep(50)
+    Send("{" . KeyBindEnter . " down}")
+    ExactSleep(50)
+    Send("{" . KeyBindEnter . " up}")
+    ExactSleep(50)
+    Send("{" . KeyBindDownArrow . " down}")
+    ExactSleep(50)
+    Send("{" . KeyBindDownArrow . " up}")
+    ExactSleep(50)
+    Send("{" . KeyBindEnter . " down}")
+    ExactSleep(50)
+    Send("{" . KeyBindEnter . " up}")
+    ExactSleep(50)
+    Send("{" . KeybindLeftArrow . " down}")
+    ExactSleep(50)
+    Send("{" . KeybindLeftArrow . " up}")
+    ExactSleep(50)
+    Send("{" . KeybindRightArrow . " down}")
+    ExactSleep(50)
+    Send("{" . KeybindRightArrow . " up}")
+    ExactSleep(50)
+    Send("{" . KeyBindInteractionMenu . " down}")
+    ExactSleep(50)
+    Send("{" . KeyBindInteractionMenu . " up}") ; Re-open's Interaction Menu
+    ExactSleep(50)
+}
+
+ThermalToggle(hotkey) {
+    if (!Active()) {
+        return
+    }
+    Send("{" . KeyBindInteractionMenu . " down}")
+    ExactSleep(50)
+    Send("{" . KeyBindInteractionMenu . " up}") ; Re-open's Interaction Menu
+    ExactSleep(50)
+    loop (5) {
+        Send("{" . KeyBindDownArrow . " down}")
+        ExactSleep(50)
+        Send("{" . KeyBindDownArrow . " up}")
+        ExactSleep(70)
+    }
+    ExactSleep(50)
+    Send("{" . KeyBindEnter . " down}")
+    ExactSleep(50)
+    Send("{" . KeyBindEnter . " up}")
+    ExactSleep(70)
+    Send("{" . KeyBindDownArrow . " down}")
+    ExactSleep(50)
+    Send("{" . KeyBindDownArrow . " up}")
+    ExactSleep(70)
+    Send("{" . KeyBindEnter . " down}")
+    ExactSleep(50)
+    Send("{" . KeyBindEnter . " up}")
+    ExactSleep(70)
+    Send("{" . KeybindSpace . " down}")
+    ExactSleep(50)
+    Send("{" . KeybindSpace . " up}")
+    ExactSleep(70)
+    Send("{" . KeyBindInteractionMenu . " down}")
+    ExactSleep(50)
+    Send("{" . KeyBindInteractionMenu . " up}")
+    ExactSleep(70)
 }
